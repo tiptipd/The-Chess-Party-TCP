@@ -14,22 +14,22 @@ to facilite online multiplayer.
 
 Basic folder/package hierarchy utilizes a Maven-like tree:
 
-│ .idea     
-└── src
-    ├── main
-       ├── java   
-       │   └── com.the-chess-party
-       │            └── Client.java
-       └── resources
+│ .idea *******************************
+└── src *******************************
+*** ├── main **************************
+****** ├── java ***********************  
+****** │ **└── com.the-chess-party ****
+****** │ ************* └── Client.java
+*******└── resources ******************
    
    
-│ .idea    
-└── src
-    ├── main
-       ├── java   
-       │   └── com.the-chess-party
-       │            └── Server.java
-       └── resources
+│ .idea *******************************
+└── src *******************************
+*** ├── main **************************
+****** ├── java ***********************  
+****** │ **└── com.the-chess-party ****
+****** │ ************* └── Server.java
+*******└── resources ******************
        
  ------------------------------------------------------------------------------
  
