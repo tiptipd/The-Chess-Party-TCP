@@ -10,8 +10,10 @@ ABOUT:
 The-chess-party is a Java based online chess game that uses a TCP connection
 to facilitate online multiplayer.
  
+ 
 -----------------------------------------------------------------------
  
+ 
 Basic folder/package hierarchy utilizes a Maven-like tree:
  
 │ .idea     
@@ -30,9 +32,11 @@ Basic folder/package hierarchy utilizes a Maven-like tree:
        │   └── com.the-chess-party
        │            └── Server.java
        └── resources
-       
+
+
  ------------------------------------------------------------------------------
- 
+
+
  Folder names and descriptions:
  com (package): The highest package in the hierarchy. Is not recommended to
  place classes into this package. com is a naming convention used to signify
@@ -45,8 +49,10 @@ Basic folder/package hierarchy utilizes a Maven-like tree:
  that may be used or referenced in the program. They can be anything from
  audio files, images, JavaScript, ini files, etc.
  
+ 
  ------------------------------------------------------------------------------
  
+ 
  WORKFLOW:
  Listed bellow are the steps that we should follow to have an efficient workflow.
  The steps are intended to mirror enterprise level workflows. They are:
