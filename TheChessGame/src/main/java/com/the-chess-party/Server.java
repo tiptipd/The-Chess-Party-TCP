@@ -1,5 +1,6 @@
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Server {
 
@@ -7,6 +8,8 @@ public class Server {
     private Socket socket;
     private ServerSocket server;
     private DataInputStream in;
+
+    private ArrayList<ClientHandler> ClientList = new ArrayList<>();
 
     // constructor with port
     public Server(int port) {

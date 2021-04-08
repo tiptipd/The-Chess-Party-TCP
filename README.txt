@@ -21,17 +21,8 @@ Basic folder/package hierarchy utilizes a Maven-like tree:
     ├── main
        ├── java   
        │   └── com.the-chess-party
-       │            └── Client.java
-       └── resources
-   
-   
-│ .idea    
-└── src
-    ├── main
-       ├── java   
-       │   └── com.the-chess-party
-       │            └── Server.java
-       └── resources
+       │            │── Client.java
+       └── resources└── Server.java
 
 
  ------------------------------------------------------------------------------

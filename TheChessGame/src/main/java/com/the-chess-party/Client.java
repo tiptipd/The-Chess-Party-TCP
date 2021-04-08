@@ -32,7 +32,9 @@ public class Client {
         // keep reading until "Over" is input
         while (!line.equals("TERMINATE")) {
             try {
-                line = getInput().readLine();
+                BufferedReader d
+                        = new BufferedReader(new InputStreamReader(getInput()));
+                line = d.readLine();
                 getOut().writeUTF(line);
             } catch (IOException i) {
                 System.out.println(i);
