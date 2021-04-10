@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Server {
 
+    private static final int PORT = 5000;
+
     //initialize socket and input stream
     private Socket socket;
     private ServerSocket server;
@@ -52,7 +54,7 @@ public class Server {
     //-------------- main access method -----------------------
 
     public static void main(String args[]) {
-        Server server = new Server(5000);
+        Server server = new Server(getPORT());
     }
 
     //-------------- Getters and Setters ----------------------
@@ -79,5 +81,9 @@ public class Server {
 
     public void setIn(DataInputStream in) {
         this.in = in;
+    }
+
+    public static int getPORT() {
+        return PORT;
     }
 }
