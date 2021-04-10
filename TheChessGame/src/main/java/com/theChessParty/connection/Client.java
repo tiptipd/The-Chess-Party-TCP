@@ -1,3 +1,5 @@
+package com.theChessParty.connection;
+
 import java.net.*;
 import java.io.*;
 import java.util.Scanner;
@@ -10,22 +12,26 @@ public class Client {
     private Socket socket;
     private DataInputStream input;
     private DataOutputStream out;
-    private String serverIP;
-    private int port;
+    private static String serverIP = "127.0.0.1";
+    private static int port = 5000;
     private static Scanner scan = new Scanner(System.in);
+    private static String clientID;
 
     // constructor to put ip address and port
     public Client(String address, int port) {
         // establish a connection
         try {
+            setServerIP(address);
+            setPort(port);
             setSocket(new Socket(address, port));
-            System.out.println("Connected at address" + getServerIP() + " on port" + getPort());
+            System.out.println("Connected at address" + Client.getServerIp() + " on port" + getPort());
 
             // takes input from terminal
-            setInput(new DataInputStream(System.in));
+            this.input = new DataInputStream(System.in);
 
             // sends output to the socket
-            setOut(new DataOutputStream(socket.getOutputStream()));
+            this.out = new DataOutputStream(socket.getOutputStream());
+
         } catch (UnknownHostException u) {
             System.out.println(u.getMessage());
         } catch (IOException i) {
@@ -40,11 +46,15 @@ public class Client {
         // keep reading until "Over" is input
         while (!line.equals("TERMINATE")) {
             try {
+                if(getInput() == null){
+                    System.out.println("no server was connected unable to run the client exiting...");
+                    return;
+                }
                 BufferedReader d
                         = new BufferedReader(new InputStreamReader(getInput()));
                 line = d.readLine();
                 getOut().writeUTF(line);
-            } catch (IOException i) {
+            } catch (IOException | NullPointerException i) {
                 System.err.println("Error occurred in the runClient method" + i);
             }
         }
@@ -123,11 +133,33 @@ public class Client {
 
     //-------------- main access method -------------------------
 
-    public static void main(String args[]) {
-        String clientIp = setUpIp();
-        int clientPort = setUpPort();
-        Client client = new Client(clientIp, clientPort);
-        client.getServerIP();
+    public static void main(String args[]) throws IOException {
+        Socket socket = new Socket(getServerIp(), getPort());
+
+        System.out.println("enter username");
+        String id = getScan().nextLine();
+        setClientID(id);
+
+        ServerConnection serverConn =  new ServerConnection(socket, getClientID());
+
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        new Thread(serverConn).start();
+
+        System.out.println("Connection made at ip: " + getServerIp() + " on port: " + getPort());
+
+        while(true){
+            System.out.println("[" + getClientID() + "]> ");
+            String command = keyboard.readLine();
+
+            if(command.equals("-quit")) break;
+
+            out.println("FROM[" + getClientID() + "]: " + command);
+        }
+
+        socket.close();
+        System.exit(0);
     }
 
     //--------- Getters and setters -----------------------------
@@ -156,23 +188,31 @@ public class Client {
         this.out = out;
     }
 
-    public String getServerIP() {
+    public static String getServerIp () {
         return serverIP;
     }
 
-    public void setServerIP(String serverIP) {
-        this.serverIP = serverIP;
+    public static void setServerIP(String serverIP) {
+        serverIP = serverIP;
     }
 
-    public int getPort() {
+    public static int getPort() {
         return port;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    public static void setPort(int port) {
+        port = port;
     }
 
     public static Scanner getScan() {
         return scan;
+    }
+
+    public static String getClientID() {
+        return clientID;
+    }
+
+    public static void setClientID(String clientID) {
+        Client.clientID = clientID;
     }
 }
