@@ -5,17 +5,21 @@ import java.net.Socket;
 
 public class ServerConnection implements Runnable {
 
+    // instance variables
     private Socket server;
     private BufferedReader input;
     private PrintWriter output;
     private String clientID;
 
+    //constructor
     public ServerConnection(Socket s, String id) throws IOException {
         this.server = s;
         this.input = new BufferedReader(new InputStreamReader(server.getInputStream()));
         this.output = new PrintWriter(server.getOutputStream(), true);
         this.clientID = id;
     }
+
+    //--------------- public methods ----------------------------
 
     @Override
     public void run() {
@@ -36,6 +40,11 @@ public class ServerConnection implements Runnable {
         }
     }
 
+    //----------------- private helper methods -----------------------
+
+    /**
+     * Helper method that closes the connection and encapsulates the
+     */
     private void closeConnection() {
         try {
             getInput().close();

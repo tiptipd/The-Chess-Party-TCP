@@ -13,6 +13,8 @@ public final class OccupiedTile extends Tile {
         this.pieceOccuping = piece;
     }
 
+    //----------------- public methods ----------------------------
+
     /**
      * Tells if tile is occupied will be true since it is occupied
      *

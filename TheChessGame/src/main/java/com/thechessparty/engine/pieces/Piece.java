@@ -19,4 +19,8 @@ public abstract class Piece {
     }
 
     public abstract List<Move> listLegalMoves(final GameBoard board);
+
+    public Team getTeam(){
+        return this.team;
+    }
 }

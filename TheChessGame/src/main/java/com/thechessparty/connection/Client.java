@@ -11,7 +11,7 @@ public class Client {
     // initialize socket and input output streams
     private Socket socket;
     private DataInputStream input;
-    private DataOutputStream out;
+    private DataOutputStream output;
     private static String serverIP = "127.0.0.1";
     private static int port = 5000;
     private static Scanner scan = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class Client {
             this.input = new DataInputStream(System.in);
 
             // sends output to the socket
-            this.out = new DataOutputStream(socket.getOutputStream());
+            this.output = new DataOutputStream(socket.getOutputStream());
 
         } catch (UnknownHostException u) {
             System.out.println(u.getMessage());
@@ -53,7 +53,7 @@ public class Client {
                 BufferedReader d
                         = new BufferedReader(new InputStreamReader(getInput()));
                 line = d.readLine();
-                getOut().writeUTF(line);
+                getOutput().writeUTF(line);
             } catch (IOException | NullPointerException i) {
                 System.err.println("Error occurred in the runClient method" + i);
             }
@@ -62,7 +62,7 @@ public class Client {
         // close the connection
         try {
             getInput().close();
-            getOut().close();
+            getOutput().close();
             getSocket().close();
         } catch (IOException i) {
             System.out.println(i);
@@ -180,12 +180,12 @@ public class Client {
         this.input = input;
     }
 
-    public DataOutputStream getOut() {
-        return out;
+    public DataOutputStream getOutput() {
+        return output;
     }
 
-    public void setOut(DataOutputStream out) {
-        this.out = out;
+    public void setOutput(DataOutputStream output) {
+        this.output = output;
     }
 
     public static String getServerIp () {
