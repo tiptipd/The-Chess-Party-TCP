@@ -15,7 +15,7 @@ public abstract class Tile {
     private static final Map<Integer, EmptyTile> EMPTY_TILE_MAP = createAllEmptyTiles();
 
     // constructor
-    Tile(int tileCoordinate) {
+    Tile(final int tileCoordinate) {
         this.tileCoordinate = tileCoordinate;
     }
 
@@ -29,7 +29,7 @@ public abstract class Tile {
     public static Map<Integer, EmptyTile> createAllEmptyTiles() {
         final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
 
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < BoardUtilites.BOARD_DIMENSIONS; i++) {
             emptyTileMap.put(i, new EmptyTile(i));
         }
 

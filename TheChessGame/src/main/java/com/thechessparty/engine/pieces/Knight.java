@@ -2,10 +2,7 @@ package com.thechessparty.engine.pieces;
 
 import com.google.common.collect.ImmutableList;
 import com.thechessparty.engine.Team;
-import com.thechessparty.engine.board.BoardUtilites;
-import com.thechessparty.engine.board.GameBoard;
-import com.thechessparty.engine.board.Move;
-import com.thechessparty.engine.board.Tile;
+import com.thechessparty.engine.board.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +27,7 @@ public class Knight extends Piece {
      * @return List<Move> list of Move type objects that correspond to legal moves
      */
     @Override
-    public List<Move> listLegalMoves(GameBoard board) {
+    public List<Move> listLegalMoves(final GameBoard board) {
         int destination;
         final List<Move> legalMoves = new ArrayList<>();
 
@@ -48,14 +45,17 @@ public class Knight extends Piece {
                 }
 
                 final Tile destinationTile = board.getTile(current);
+
+                // if destination Tile is not occupied get NormalMove
                 if (!destinationTile.isTileOccupied()) {
-                    legalMoves.add(new Move());
+                    legalMoves.add(new NormalMove(board, this, destination));
                 } else {
                     final Piece occupyingPiece = destinationTile.getPiece();
                     final Team team = occupyingPiece.getTeam();
 
+                    // if the Tile is occupied get AttackMove
                     if (this.team != team) {
-                        legalMoves.add(new Move());
+                        legalMoves.add(new AttackMove(board, this, destination, occupyingPiece));
                     }
                 }
             }

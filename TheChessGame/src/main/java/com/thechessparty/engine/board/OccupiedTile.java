@@ -8,7 +8,7 @@ public final class OccupiedTile extends Tile {
     Piece pieceOccuping;
 
     // constructor makes call to Tile constructor
-    OccupiedTile(int coordinate, Piece piece) {
+    OccupiedTile(final int coordinate, Piece piece) {
         super(coordinate);
         this.pieceOccuping = piece;
     }
