@@ -16,10 +16,10 @@ public class Server {
     private DataInputStream input;
 
     // Server class variables
-    private static ArrayList<ClientHandler> clientList = new ArrayList<>();
+    private static final ArrayList<ClientHandler> clientList = new ArrayList<>();
 
     // 256 is maximum number of threads that each JDK can handle per IBM
-    private static ExecutorService pool = Executors.newFixedThreadPool(256);
+    private static final ExecutorService pool = Executors.newFixedThreadPool(256);
 
     public Server(){}
 

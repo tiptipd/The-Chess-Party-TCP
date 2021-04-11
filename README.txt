@@ -1,10 +1,10 @@
-######################################################################
-#                                                                    #
-#                                                                    #
-#                  The Chess Party (TCP)                             #
-#                                                                    #
-#                                                                    #
-######################################################################
+#####################################################################################################
+#                                                                                                   #
+#                                                                                                   #
+#                                         The Chess Party (TCP)                                     #
+#                                                                                                   #
+#                                                                                                   #
+#####################################################################################################
 
 ABOUT:
 The-chess-party is a Java based online chess game that uses a TCP connection
@@ -28,10 +28,10 @@ Basic folder/package hierarchy follows a standard Maven structure.
     │                        │      └── Team.enum    ├── Piece.java      ├── EmptyTile.java
     │                        │                       ├── Pawn.java       ├── OccupiedTile.java
     │                        │                       ├── Rook.java       ├── Move.java
-    │                        │                       ├── Queen.java      └── GameBoard.java
-    │                        │                       ├── Knight.java
-    │                        │                       ├── Bishop.java
-    │                        │                       └── King.java
+    │                        │                       ├── Queen.java      ├── AttackMove.java
+    │                        │                       ├── Knight.java     ├── NormalMove.java
+    │                        │                       ├── Bishop.java     ├── GameBoard.java
+    │                        │                       └── King.java       ├── BoardUtilities.java
     │                        │
     │                        └── connection
     │                                   ├──────────────────────jsonparsing 
