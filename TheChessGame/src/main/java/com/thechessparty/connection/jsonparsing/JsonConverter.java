@@ -8,7 +8,10 @@ import java.io.IOException;
 
 public class JsonConverter {
 
+    // class variables
     private static ObjectMapper objectMapper = getDefaultObjectMapper();
+
+    //------------------ public methods --------------------------
 
     /**
      * Creates an ObjectMapper object with configurations

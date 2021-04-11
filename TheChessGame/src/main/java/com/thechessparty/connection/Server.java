@@ -13,13 +13,13 @@ public class Server {
     //initialize socket and input stream
     private Socket socket;
     private ServerSocket server;
-    private DataInputStream in;
+    private DataInputStream input;
 
     // Server class variables
-    private static ArrayList<ClientHandler> clientList = new ArrayList<>();
+    private static final ArrayList<ClientHandler> clientList = new ArrayList<>();
 
     // 256 is maximum number of threads that each JDK can handle per IBM
-    private static ExecutorService pool = Executors.newFixedThreadPool(256);
+    private static final ExecutorService pool = Executors.newFixedThreadPool(256);
 
     public Server(){}
 
@@ -97,12 +97,12 @@ public class Server {
         this.server = server;
     }
 
-    public DataInputStream getIn() {
-        return in;
+    public DataInputStream getInput() {
+        return input;
     }
 
-    public void setIn(DataInputStream in) {
-        this.in = in;
+    public void setInput(DataInputStream input) {
+        this.input = input;
     }
 
     public static int getPORT() {

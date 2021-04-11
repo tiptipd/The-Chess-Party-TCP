@@ -1,10 +1,10 @@
-######################################################################
-#                                                                    #
-#                                                                    #
-#                  The Chess Party (TCP)                             #
-#                                                                    #
-#                                                                    #
-######################################################################
+#####################################################################################################
+#                                                                                                   #
+#                                                                                                   #
+#                                         The Chess Party (TCP)                                     #
+#                                                                                                   #
+#                                                                                                   #
+#####################################################################################################
 
 ABOUT:
 The-chess-party is a Java based online chess game that uses a TCP connection
@@ -17,39 +17,46 @@ to facilitate online multiplayer.
 Basic folder/package hierarchy follows a standard Maven structure.
  
 │    
-└── src
+└─ src
     ├── main
     │   ├── java   
     │   │   └── com
     │   │        └──thechessparty
-    │   │                    ├── game
-    │   └── resources        │
-    │                        │
+    │   │                    ├── engine
+    │   └── resources        │      ├───────────────────────────────── board
+    │                        │      ├────────────── pieces               ├── Tile.java     
+    │                        │      └── Team.enum    ├── Piece.java      ├── EmptyTile.java
+    │                        │                       ├── Pawn.java       ├── OccupiedTile.java
+    │                        │                       ├── Rook.java       ├── Move.java
+    │                        │                       ├── Queen.java      ├── AttackMove.java
+    │                        │                       ├── Knight.java     ├── NormalMove.java
+    │                        │                       ├── Bishop.java     ├── GameBoard.java
+    │                        │                       └── King.java       ├── BoardUtilities.java
     │                        │
     │                        └── connection
     │                                   ├──────────────────────jsonparsing 
-    │                                   │                            ├── Json.java
+    │                                   │                            └── Json.java
     │                                   ├── Client.java                
     │                                   ├── ClientHandler.java
     │                                   ├── Server.java
-    │                                   ├── ServerConnection.java
+    │                                   └── ServerConnection.java
     │
     └── test
         ├── java 
         │   └── com
         │        └──thechessparty
-        │                    ├── game
+        │                    ├── engine
         │                    │
         └── resources        │
                              └── connection
-                                        ├──────────────────────jsonparsing 
-                                        │                            ├── Json.java
-                                        ├── Client.java              │
-                                        ├── ClientHandler.java       └── pojo
-                                        ├── Server.java                   ├── SimpleTestCasePOJO.java
-                                        ├── ServerConnection.java         ├── BookPOJO.java
+                                        └──────────────────────jsonparsing 
+                                                                     ├── Json.java
+                                                                     │
+                                                                     └── pojo
+                                                                          ├── SimpleTestCasePOJO.java
+                                                                          ├── BookPOJO.java
                                                                           ├── DayPOJO.java
-                                                                          ├── AuthorPOJO.java
+                                                                          └── AuthorPOJO.java
 
 
 -----------------------------------------------------------------------------------------------------
@@ -94,6 +101,17 @@ Basic folder/package hierarchy follows a standard Maven structure.
 
  BUILD AND INSTALL:
  
+ The project will need Maven to pull and manage dependancies as specified by the pom.xml and install
+ them on your local machine. To do this ensure you have Maven on your machine and have your environment
+ variables set to reference the Maven binary or bin folder.
+
+ Navigate to "TheChessGame" that is located in the project folder.
+
+ Use the command: mvn clean install
+
+ next compile the Java files from a commonly known directory in this case the src folder 
+ NOTE for devs: it is recomended we build the project in Intllij other IDE's may be used but may require 
+ additional configuration.
 
 -----------------------------------------------------------------------------------------------------
  

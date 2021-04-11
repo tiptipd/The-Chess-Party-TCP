@@ -5,13 +5,15 @@ import com.thechessparty.engine.pieces.Piece;
 public final class OccupiedTile extends Tile {
 
     // instance variable
-    private Piece pieceOccuping;
+    Piece pieceOccuping;
 
     // constructor makes call to Tile constructor
-    public OccupiedTile(int coordinate, Piece piece) {
+    OccupiedTile(final int coordinate, Piece piece) {
         super(coordinate);
         this.pieceOccuping = piece;
     }
+
+    //----------------- public methods ----------------------------
 
     /**
      * Tells if tile is occupied will be true since it is occupied

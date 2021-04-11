@@ -55,12 +55,20 @@ public class ClientHandler implements Runnable {
 
     //------------- private helper methods ------------------
 
+    /**
+     * Iterates through the list of clients and sends a message to each of them
+     *
+     * @param msg String of the message that is to be broadcast
+     */
     private void clientBroadcast(String msg) {
         for (ClientHandler client : clientList) {
             client.output.println(msg);
         }
     }
 
+    /**
+     * Helper method that closes the connection and encapsulates the
+     */
     private void closeConnection() {
         try {
             getInput().close();
