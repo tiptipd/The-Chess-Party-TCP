@@ -1,4 +1,4 @@
-package com.theChessParty.connection;
+package com.thechessparty.connection;
 
 import java.net.*;
 import java.io.*;
@@ -17,7 +17,7 @@ public class Client {
     private static Scanner scan = new Scanner(System.in);
     private static String clientID;
 
-    // constructor to put ip address and port
+    // constructor to set ip address and port
     public Client(String address, int port) {
         // establish a connection
         try {

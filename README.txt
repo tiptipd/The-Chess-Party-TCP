@@ -11,37 +11,91 @@ The-chess-party is a Java based online chess game that uses a TCP connection
 to facilitate online multiplayer.
  
  
------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
  
  
-Basic folder/package hierarchy utilizes a Maven-like tree:
+Basic folder/package hierarchy follows a standard Maven structure.
  
-│ .idea     
+│    
 └── src
     ├── main
-       ├── java   
-       │   └── com.the-chess-party
-       │            │── Client.java
-       └── resources└── Server.java
+    │   ├── java   
+    │   │   └── com
+    │   │        └──thechessparty
+    │   │                    ├── game
+    │   └── resources        │
+    │                        │
+    │                        │
+    │                        └── connection
+    │                                   ├──────────────────────jsonparsing 
+    │                                   │                            ├── Json.java
+    │                                   ├── Client.java                
+    │                                   ├── ClientHandler.java
+    │                                   ├── Server.java
+    │                                   ├── ServerConnection.java
+    │
+    └── test
+        ├── java 
+        │   └── com
+        │        └──thechessparty
+        │                    ├── game
+        │                    │
+        └── resources        │
+                             └── connection
+                                        ├──────────────────────jsonparsing 
+                                        │                            ├── Json.java
+                                        ├── Client.java              │
+                                        ├── ClientHandler.java       └── pojo
+                                        ├── Server.java                   ├── SimpleTestCasePOJO.java
+                                        ├── ServerConnection.java         ├── BookPOJO.java
+                                                                          ├── DayPOJO.java
+                                                                          ├── AuthorPOJO.java
 
 
- ------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 
 
- Folder names and descriptions:
+ FOLDERS AND PACKAGES:
+
  com (package): The highest package in the hierarchy. Is not recommended to
  place classes into this package. com is a naming convention used to signify
  commercial (disclaimer we are not making any money)
  
- the-chess-party (package): This is the main package that will contain all of the
+ thechessparty (package): This is the main package that will contain all of the
  related classes, enums, interfaces, etc.
  
  resources (resources folder): This directory is used to store any static files
  that may be used or referenced in the program. They can be anything from
  audio files, images, JavaScript, ini files, etc.
- 
+
+ src (source folder): The parent folder of all of the java files. This is a common 
+ parent folder of all of the ancestor runnable files and packages
+
+ main (folder): The parent folder of all of the files and resources that are needed 
+ to run the program.
+
+ test (folder): The parent folder of all of the files and resources that are related
+ to unit/junit testing
+
+ java (source folder): The parent directory of all of the Java files in the project.
+
  
- ------------------------------------------------------------------------------
+ connection (package): The primary package of java classes that are related to the server
+ and client TCP connection. 
+
+ jsonparsing (package): The primary package of java classes that implement Jackson/JSON
+ serial and de-serialization.
+
+ game (package): The primary package of java classes that are related to the game logic.
+
+ 
+ 
+-----------------------------------------------------------------------------------------------------
+
+ BUILD AND INSTALL:
+ 
+
+-----------------------------------------------------------------------------------------------------
  
  
  WORKFLOW:

@@ -1,4 +1,4 @@
-package com.theChessParty.connection;
+package com.thechessparty.connection;
 
 import java.io.*;
 import java.net.Socket;

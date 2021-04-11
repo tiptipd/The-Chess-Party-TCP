@@ -1,4 +1,4 @@
-package com.theChessParty.connection;
+package com.thechessparty.connection;
 
 import java.net.*;
 import java.io.*;
@@ -17,7 +17,9 @@ public class Server {
 
     // Server class variables
     private static ArrayList<ClientHandler> clientList = new ArrayList<>();
-    private static ExecutorService pool = Executors.newFixedThreadPool(4);
+
+    // 256 is maximum number of threads that each JDK can handle per IBM
+    private static ExecutorService pool = Executors.newFixedThreadPool(256);
 
     public Server(){}
 

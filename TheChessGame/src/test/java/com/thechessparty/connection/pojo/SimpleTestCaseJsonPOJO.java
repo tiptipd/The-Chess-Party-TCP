@@ -1,4 +1,4 @@
-package com.theChessParty.connection.pojo;
+package com.thechessparty.connection.pojo;
 
 public class SimpleTestCaseJsonPOJO {
 
