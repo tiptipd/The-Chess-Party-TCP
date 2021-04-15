@@ -16,4 +16,9 @@ public class Pawn extends Piece{
     public List<Move> listLegalMoves(GameBoard board) {
         return null;
     }
+
+    @Override
+    public String toString(){
+        return PieceIdentifiers.PAWN.toString();
+    }
 }

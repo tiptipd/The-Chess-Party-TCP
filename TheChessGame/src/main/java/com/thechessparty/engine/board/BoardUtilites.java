@@ -8,6 +8,9 @@ public class BoardUtilites {
     public static final boolean[] SEVENTH_COLUMN = initializeColumn(6);
     public static final boolean[] EIGHTH_COLUMN = initializeColumn(7);
 
+    public static final boolean[] SECOND_ROW = initRow(1);
+    public static final boolean[] SEVENTH_ROW = initRow(6);
+
     public static final int BOARD_DIMENSIONS = 64;
     public static final int ROW_DIMENSIONS = 8;
 

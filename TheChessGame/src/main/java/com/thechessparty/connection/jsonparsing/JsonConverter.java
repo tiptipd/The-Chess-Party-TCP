@@ -14,7 +14,7 @@ public class JsonConverter {
     //------------------ public methods --------------------------
 
     /**
-     * Creates an ObjectMapper object with configurations
+     * Builder method that creates an ObjectMapper object with configurations
      *
      * @return ObjectMapper that has personalized configurations
      */

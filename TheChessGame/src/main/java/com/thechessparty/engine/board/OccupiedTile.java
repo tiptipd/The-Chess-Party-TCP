@@ -1,5 +1,6 @@
 package com.thechessparty.engine.board;
 
+import com.thechessparty.engine.Team;
 import com.thechessparty.engine.pieces.Piece;
 
 public final class OccupiedTile extends Tile {
@@ -34,4 +35,14 @@ public final class OccupiedTile extends Tile {
     public Piece getPiece() {
         return this.pieceOccuping;
     }
+
+    @Override
+    public String toString(){
+        if(getPiece().getTeam() == Team.BLACK){
+            return getPiece().toString().toLowerCase();
+        }else{
+            return getPiece().toString();
+        }
+    }
+
 }// end of OccupiedTile class

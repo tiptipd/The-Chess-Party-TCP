@@ -10,4 +10,9 @@ public final class NormalMove extends Move {
         super(board, piece, destination);
     }
 
+    @Override
+    public String toString(){
+        return "-";
+    }
+
 }
