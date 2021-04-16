@@ -9,7 +9,7 @@ import java.util.List;
 public class Rook extends Piece{
 
     public Rook(int position, final Team team){
-        super(position,team);
+        super(PieceIdentifiers.ROOK, position,team);
     }
 
     @Override

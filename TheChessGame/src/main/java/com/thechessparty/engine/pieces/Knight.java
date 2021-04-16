@@ -15,7 +15,7 @@ public class Knight extends Piece {
 
     //constructor
     public Knight(int position, final Team team) {
-        super(position, team);
+        super(PieceIdentifiers.KNIGHT, position, team);
     }
 
     /**

@@ -3,6 +3,8 @@ package com.thechessparty.engine.board;
 import com.google.common.collect.ImmutableList;
 import com.thechessparty.engine.Team;
 import com.thechessparty.engine.pieces.*;
+import com.thechessparty.engine.player.BlackPlayer;
+import com.thechessparty.engine.player.WhitePlayer;
 import org.checkerframework.checker.units.qual.K;
 
 import java.util.*;
@@ -13,6 +15,8 @@ public class GameBoard {
     private final List<Tile> gameBoard;
     private final List<Piece> white;
     private final List<Piece> black;
+    private final WhitePlayer whitePlayer;
+    private final BlackPlayer blackPlayer;
 
     // constructor
     private GameBoard(Builder builder) {
@@ -22,6 +26,9 @@ public class GameBoard {
 
         final List<Move> whiteMoves = legalMoves(this.white);
         final List<Move> blackMoves = legalMoves(this.black);
+
+        this.whitePlayer = new WhitePlayer(this, whiteMoves, blackMoves);
+        this.blackPlayer = new BlackPlayer(this, whiteMoves, blackMoves);
     }
 
     //-------------- public methods ----------------------------
@@ -185,6 +192,17 @@ public class GameBoard {
         }
         return ImmutableList.copyOf(active);
     }
+
+    //-------------- getters and setters --------------
+
+    public List<Piece> getWhite() {
+        return white;
+    }
+
+    public List<Piece> getBlack() {
+        return black;
+    }
+
 
     //---------------- nested class -------------------
 

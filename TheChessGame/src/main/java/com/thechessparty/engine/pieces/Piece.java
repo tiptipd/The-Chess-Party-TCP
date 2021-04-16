@@ -9,16 +9,24 @@ import java.util.List;
 public abstract class Piece {
 
     // instance variables
+    protected final PieceIdentifiers type;
     protected final int position;
     protected final Team team;
 
     //constructor
-    Piece(final int position, final Team team){
+    Piece(final PieceIdentifiers type, final int position, final Team team){
+        this.type = type;
         this.position = position;
         this.team = team;
     }
 
     public abstract List<Move> listLegalMoves(final GameBoard board);
+
+    //--------------- getters and setters -------------------
+
+    public PieceIdentifiers getType() {
+        return type;
+    }
 
     public Team getTeam(){
         return this.team;

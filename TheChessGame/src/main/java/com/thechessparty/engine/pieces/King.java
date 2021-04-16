@@ -9,7 +9,7 @@ import java.util.List;
 public class King extends Piece{
 
     public King(int position, final Team team){
-        super(position, team);
+        super(PieceIdentifiers.KING, position, team);
     }
 
     @Override
