@@ -41,7 +41,7 @@ public class GameBoard {
         final List<Move> moves = new ArrayList<>();
 
         for (final Piece piece : pieces) {
-            moves.addAll(piece.listLegalMoves(this));
+            //moves.addAll(piece.listLegalMoves(this));
         }
         return ImmutableList.copyOf(moves);
     }
@@ -74,22 +74,22 @@ public class GameBoard {
         Pawn blkPawn7 = new Pawn(15, Team.BLACK);
 
         // The white teams pieces at their initial position
-        Rook whtRRook = new Rook(0, Team.WHITE);
-        Knight whtRKnight = new Knight(1, Team.WHITE);
-        Bishop whtRBishop = new Bishop(2, Team.WHITE);
-        Queen whtQueen = new Queen(3, Team.WHITE);
-        King whtKing = new King(4, Team.WHITE);
-        Bishop whtLBishop = new Bishop(5, Team.WHITE);
-        Knight whtLKnight = new Knight(6, Team.WHITE);
-        Rook whtLRook = new Rook(7, Team.WHITE);
-        Pawn whtPawn0 = new Pawn(8, Team.WHITE);
-        Pawn whtPawn1 = new Pawn(9, Team.WHITE);
-        Pawn whtPawn2 = new Pawn(10, Team.WHITE);
-        Pawn whtPawn3 = new Pawn(11, Team.WHITE);
-        Pawn whtPawn4 = new Pawn(12, Team.WHITE);
-        Pawn whtPawn5 = new Pawn(13, Team.WHITE);
-        Pawn whtPawn6 = new Pawn(14, Team.WHITE);
-        Pawn whtPawn7 = new Pawn(15, Team.WHITE);
+        Rook whtRRook = new Rook(56, Team.WHITE);
+        Knight whtRKnight = new Knight(57, Team.WHITE);
+        Bishop whtRBishop = new Bishop(58, Team.WHITE);
+        Queen whtQueen = new Queen(59, Team.WHITE);
+        King whtKing = new King(60, Team.WHITE);
+        Bishop whtLBishop = new Bishop(61, Team.WHITE);
+        Knight whtLKnight = new Knight(62, Team.WHITE);
+        Rook whtLRook = new Rook(63, Team.WHITE);
+        Pawn whtPawn0 = new Pawn(48, Team.WHITE);
+        Pawn whtPawn1 = new Pawn(49, Team.WHITE);
+        Pawn whtPawn2 = new Pawn(50, Team.WHITE);
+        Pawn whtPawn3 = new Pawn(51, Team.WHITE);
+        Pawn whtPawn4 = new Pawn(52, Team.WHITE);
+        Pawn whtPawn5 = new Pawn(53, Team.WHITE);
+        Pawn whtPawn6 = new Pawn(54, Team.WHITE);
+        Pawn whtPawn7 = new Pawn(55, Team.WHITE);
 
         //sets the black pieces to the board
         b.setPiece(blkRRook);
