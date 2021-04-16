@@ -23,4 +23,8 @@ public abstract class Piece {
     public Team getTeam(){
         return this.team;
     }
+
+    public int getPosition() {
+        return position;
+    }
 }

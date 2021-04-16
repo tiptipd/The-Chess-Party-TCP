@@ -35,10 +35,12 @@ public class ClientHandler implements Runnable {
                 String rq = request.substring(request.indexOf(": ") + 2);
                 if (rq.startsWith("name")) {
                     getOut().println("connection was made in handler");
-                } else if (rq.startsWith("request")) {
+                } else if (true/*rq.startsWith("request")*/) {
+
+                    //TODO: fix the logic here possibly utilize the Json parser
                     int firstSpace = request.indexOf(" ");
                     if (firstSpace != -1) {
-                        clientBroadcast(request.substring(19));
+                        clientBroadcast(request.substring(12));
                     }
                 } else {
                     getOut().println("Server response: " + request);

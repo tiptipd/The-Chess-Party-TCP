@@ -63,6 +63,11 @@ public class Knight extends Piece {
         return ImmutableList.copyOf(legalMoves);
     }
 
+    @Override
+    public String toString(){
+        return PieceIdentifiers.KNIGHT.toString();
+    }
+
     //----------- private helper methods ---------------------
 
     /**

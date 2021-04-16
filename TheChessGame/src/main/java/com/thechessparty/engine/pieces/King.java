@@ -16,4 +16,9 @@ public class King extends Piece{
     public List<Move> listLegalMoves(GameBoard board) {
         return null;
     }
+
+    @Override
+    public String toString(){
+        return PieceIdentifiers.KING.toString();
+    }
 }

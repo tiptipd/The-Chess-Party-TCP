@@ -16,4 +16,9 @@ public class Queen extends Piece{
     public List<Move> listLegalMoves(GameBoard board) {
         return null;
     }
+
+    @Override
+    public String toString(){
+        return PieceIdentifiers.QUEEN.toString();
+    }
 }

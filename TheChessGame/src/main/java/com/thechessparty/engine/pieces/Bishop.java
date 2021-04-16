@@ -16,4 +16,9 @@ public class Bishop extends Piece {
     public List<Move> listLegalMoves(GameBoard board) {
         return null;
     }
+
+    @Override
+    public String toString(){
+        return PieceIdentifiers.BISHOP.toString();
+    }
 }
