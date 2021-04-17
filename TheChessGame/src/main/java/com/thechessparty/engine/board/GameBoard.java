@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.thechessparty.engine.Team;
 import com.thechessparty.engine.pieces.*;
 import com.thechessparty.engine.player.BlackPlayer;
+import com.thechessparty.engine.player.Player;
 import com.thechessparty.engine.player.WhitePlayer;
 import org.checkerframework.checker.units.qual.K;
 
@@ -17,6 +18,7 @@ public class GameBoard {
     private final List<Piece> black;
     private final WhitePlayer whitePlayer;
     private final BlackPlayer blackPlayer;
+    private final Player currentPlayer;
 
     // constructor
     private GameBoard(Builder builder) {
@@ -29,6 +31,8 @@ public class GameBoard {
 
         this.whitePlayer = new WhitePlayer(this, whiteMoves, blackMoves);
         this.blackPlayer = new BlackPlayer(this, whiteMoves, blackMoves);
+
+        this.currentPlayer = null;
     }
 
     //-------------- public methods ----------------------------
@@ -203,8 +207,19 @@ public class GameBoard {
         return black;
     }
 
+    public WhitePlayer getWhitePlayer() {
+        return whitePlayer;
+    }
 
-    //---------------- nested class -------------------
+    public BlackPlayer getBlackPlayer() {
+        return blackPlayer;
+    }
+
+    public Player getCurrentPlayer(){
+        return this.currentPlayer;
+    }
+
+//---------------- nested class -------------------
 
     /**
      * Utilizes the builder pattern to decouple the complexity of constructing a board object.
@@ -253,5 +268,5 @@ public class GameBoard {
         public GameBoard build() {
             return new GameBoard(this);
         }
-    }
-}
+    }// end of builder class
+}// end of GameBoard class

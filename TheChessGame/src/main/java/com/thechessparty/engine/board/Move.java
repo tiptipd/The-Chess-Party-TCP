@@ -15,4 +15,12 @@ public abstract class Move {
         this.movedPosition = piece;
         this.destination = destination;
     }
+
+    public abstract GameBoard execute();
+
+    //--------------- getters and setters ------------------
+
+    public int getDestination(){
+        return this.destination;
+    }
 }

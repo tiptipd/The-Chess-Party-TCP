@@ -11,6 +11,11 @@ public final class NormalMove extends Move {
     }
 
     @Override
+    public GameBoard execute() {
+        return null;
+    }
+
+    @Override
     public String toString(){
         return "-";
     }

@@ -1,5 +1,6 @@
 package com.thechessparty.engine.player;
 
+import com.thechessparty.engine.Team;
 import com.thechessparty.engine.board.GameBoard;
 import com.thechessparty.engine.board.Move;
 import com.thechessparty.engine.pieces.Piece;
@@ -12,10 +13,20 @@ public class WhitePlayer extends Player{
         super(board, whiteMoves, blackMoves);
     }
 
+    //------------------- getters and setters --------------------
+
     @Override
     public List<Piece> getActivePieces() {
         return getBoard().getWhite();
     }
 
-    //------------------- getters and setters --------------------
+    @Override
+    public Team getTeam() {
+        return Team.WHITE;
+    }
+
+    @Override
+    public Player getAdversary() {
+        return getBoard().getBlackPlayer();
+    }
 }
