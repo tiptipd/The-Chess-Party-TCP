@@ -17,6 +17,16 @@ public class Queen extends Piece{
         return null;
     }
 
+    /**
+     * Creates a new Queen with updated position of Move
+     * @param m the next Move of the Bishop
+     * @return a new Queen with position of Move
+     */
+    @Override
+    public Queen movePiece(Move m) {
+        return new Queen(m.getDestination(), m.getMovedPosition().getTeam());
+    }
+
     @Override
     public String toString(){
         return PieceIdentifiers.QUEEN.toString();

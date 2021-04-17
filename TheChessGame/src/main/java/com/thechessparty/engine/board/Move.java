@@ -23,4 +23,12 @@ public abstract class Move {
     public int getDestination(){
         return this.destination;
     }
+
+    public GameBoard getBoard() {
+        return board;
+    }
+
+    public Piece getMovedPosition() {
+        return movedPosition;
+    }
 }

@@ -63,6 +63,17 @@ public class Knight extends Piece {
         return ImmutableList.copyOf(legalMoves);
     }
 
+    /**
+     * Creates a new Knight with updated position after a move is made
+     *
+     * @param m the Move of the Knight
+     * @return a new Knight with position of move
+     */
+    @Override
+    public Knight movePiece(Move m) {
+        return new Knight(m.getDestination(), m.getMovedPosition().getTeam());
+    }
+
     @Override
     public String toString(){
         return PieceIdentifiers.KNIGHT.toString();

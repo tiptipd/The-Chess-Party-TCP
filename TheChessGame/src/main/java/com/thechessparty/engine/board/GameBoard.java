@@ -32,7 +32,7 @@ public class GameBoard {
         this.whitePlayer = new WhitePlayer(this, whiteMoves, blackMoves);
         this.blackPlayer = new BlackPlayer(this, whiteMoves, blackMoves);
 
-        this.currentPlayer = null;
+        this.currentPlayer = builder.nextMove.nextPlayer(this.blackPlayer, this.whitePlayer);
     }
 
     //-------------- public methods ----------------------------
@@ -215,7 +215,7 @@ public class GameBoard {
         return blackPlayer;
     }
 
-    public Player getCurrentPlayer(){
+    public Player getCurrentPlayer() {
         return this.currentPlayer;
     }
 

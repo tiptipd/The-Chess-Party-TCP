@@ -20,7 +20,10 @@ public abstract class Piece {
         this.team = team;
     }
 
+    //--------------- abstract methods ----------------------
+
     public abstract List<Move> listLegalMoves(final GameBoard board);
+    public abstract Piece movePiece(Move m);
 
     //--------------- getters and setters -------------------
 

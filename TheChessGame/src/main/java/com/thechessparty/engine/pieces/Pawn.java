@@ -17,6 +17,16 @@ public class Pawn extends Piece{
         return null;
     }
 
+    /**
+     * Creates a new Pawn with updated position of Move
+     * @param m the next Move of the Pawn
+     * @return a new Bishop with position of Move
+     */
+    @Override
+    public Pawn movePiece(Move m) {
+        return new Pawn(m.getDestination(), m.getMovedPosition().getTeam());
+    }
+
     @Override
     public String toString(){
         return PieceIdentifiers.PAWN.toString();

@@ -17,6 +17,16 @@ public class Bishop extends Piece {
         return null;
     }
 
+    /**
+     * Creates a new Bishop with updated position of Move
+     * @param m the next Move of the Bishop
+     * @return a new Bishop with position of Move
+     */
+    @Override
+    public Piece movePiece(Move m) {
+        return new Bishop(m.getDestination(), m.getMovedPosition().getTeam());
+    }
+
     @Override
     public String toString(){
         return PieceIdentifiers.BISHOP.toString();
