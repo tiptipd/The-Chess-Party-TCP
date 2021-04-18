@@ -1,7 +1,7 @@
 package com.thechessparty.engine.player;
 
 import com.thechessparty.engine.board.GameBoard;
-import com.thechessparty.engine.board.Move;
+import com.thechessparty.engine.moveset.Move;
 
 public class Transition {
 
@@ -22,5 +22,13 @@ public class Transition {
 
     public Status getStatus(){
         return this.status;
+    }
+
+    public GameBoard getBoardState() {
+        return boardState;
+    }
+
+    public Move getMove() {
+        return move;
     }
 }

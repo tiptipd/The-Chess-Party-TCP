@@ -19,5 +19,5 @@ public enum Status {
             return false;
         }
     };
-    abstract boolean isFinished();
+    public abstract boolean isFinished();
 }

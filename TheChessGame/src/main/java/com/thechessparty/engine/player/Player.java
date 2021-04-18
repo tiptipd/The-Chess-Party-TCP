@@ -3,7 +3,7 @@ package com.thechessparty.engine.player;
 import com.google.common.collect.ImmutableList;
 import com.thechessparty.engine.Team;
 import com.thechessparty.engine.board.GameBoard;
-import com.thechessparty.engine.board.Move;
+import com.thechessparty.engine.moveset.Move;
 import com.thechessparty.engine.pieces.King;
 import com.thechessparty.engine.pieces.Piece;
 
@@ -134,6 +134,8 @@ public abstract class Player {
         }
         return false;
     }
+
+    public abstract List<Move> kingCastleMoves(List<Move> playerMoves, List<Move> adversaryMoves);
 
     //------------------- getters and setters --------------------
 

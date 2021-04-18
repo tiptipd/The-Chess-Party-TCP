@@ -2,13 +2,15 @@ package com.thechessparty.engine.board;
 
 import com.google.common.collect.ImmutableList;
 import com.thechessparty.engine.Team;
+import com.thechessparty.engine.moveset.Move;
 import com.thechessparty.engine.pieces.*;
 import com.thechessparty.engine.player.BlackPlayer;
 import com.thechessparty.engine.player.Player;
 import com.thechessparty.engine.player.WhitePlayer;
-import org.checkerframework.checker.units.qual.K;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GameBoard {
 
@@ -143,6 +145,15 @@ public class GameBoard {
 
         //returns the built board
         return b.build();
+    }
+
+    /**
+     * joins the two lists of Moves of both the whitePlayer and the blackPlayer.
+     * @return A List of all possible Moves between both Players
+     */
+    public List<Move> getAllMoves(){
+        return Stream.concat(this.blackPlayer.getLegalMoves().stream(), this.whitePlayer.getLegalMoves().stream())
+                .collect(Collectors.toList());
     }
 
     @Override

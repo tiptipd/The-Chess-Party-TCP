@@ -2,7 +2,7 @@ package com.thechessparty.engine.pieces;
 
 import com.thechessparty.engine.Team;
 import com.thechessparty.engine.board.GameBoard;
-import com.thechessparty.engine.board.Move;
+import com.thechessparty.engine.moveset.Move;
 
 import java.util.List;
 

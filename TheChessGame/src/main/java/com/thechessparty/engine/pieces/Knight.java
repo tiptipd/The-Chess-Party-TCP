@@ -3,6 +3,9 @@ package com.thechessparty.engine.pieces;
 import com.google.common.collect.ImmutableList;
 import com.thechessparty.engine.Team;
 import com.thechessparty.engine.board.*;
+import com.thechessparty.engine.moveset.AttackMove;
+import com.thechessparty.engine.moveset.Move;
+import com.thechessparty.engine.moveset.NormalMove;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,8 @@ public class Knight extends Piece {
     public Knight(int position, final Team team) {
         super(PieceIdentifiers.KNIGHT, position, team);
     }
+
+    //------------- public methods -------------------
 
     /**
      * Iterates through the list of KNIGHT_MOVES and applies the offset to the relative position of the
@@ -34,13 +39,13 @@ public class Knight extends Piece {
         for (final int current : KNIGHT_MOVES) {
 
             //applying the offset to the position;
-            destination = this.position + current;
+            destination = getPosition() + current;
 
             if (BoardUtilites.isValidMove(destination)) {
 
                 //if Knight Piece is near the edges of the board (literal edge cases)
-                if (isFirstColumn(this.position, current) || isSecondColumn(this.position, current) ||
-                        isSeventhColumn(this.position, current) || isEighthColumn(this.position, current)) {
+                if (isFirstColumn(getPosition(), current) || isSecondColumn(getPosition(), current) ||
+                        isSeventhColumn(getPosition(), current) || isEighthColumn(getPosition(), current)) {
                     continue;
                 }
 
@@ -54,7 +59,7 @@ public class Knight extends Piece {
                     final Team team = occupyingPiece.getTeam();
 
                     // if the Tile is occupied get AttackMove
-                    if (this.team != team) {
+                    if (getTeam() != team) {
                         legalMoves.add(new AttackMove(board, this, destination, occupyingPiece));
                     }
                 }
@@ -75,7 +80,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return PieceIdentifiers.KNIGHT.toString();
     }
 
