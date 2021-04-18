@@ -9,7 +9,7 @@ import java.util.Map;
 public abstract class Tile {
 
     // instance variables
-    protected int tileCoordinate;
+    private int tileCoordinate;
 
     // class variables
     private static final Map<Integer, EmptyTile> EMPTY_TILE_MAP = createAllEmptyTiles();

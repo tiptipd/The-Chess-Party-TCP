@@ -2,10 +2,15 @@ package com.thechessparty.engine.board;
 
 import com.google.common.collect.ImmutableList;
 import com.thechessparty.engine.Team;
+import com.thechessparty.engine.moveset.Move;
 import com.thechessparty.engine.pieces.*;
-import org.checkerframework.checker.units.qual.K;
+import com.thechessparty.engine.player.BlackPlayer;
+import com.thechessparty.engine.player.Player;
+import com.thechessparty.engine.player.WhitePlayer;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GameBoard {
 
@@ -13,6 +18,9 @@ public class GameBoard {
     private final List<Tile> gameBoard;
     private final List<Piece> white;
     private final List<Piece> black;
+    private final WhitePlayer whitePlayer;
+    private final BlackPlayer blackPlayer;
+    private final Player currentPlayer;
 
     // constructor
     private GameBoard(Builder builder) {
@@ -22,6 +30,11 @@ public class GameBoard {
 
         final List<Move> whiteMoves = legalMoves(this.white);
         final List<Move> blackMoves = legalMoves(this.black);
+
+        this.whitePlayer = new WhitePlayer(this, whiteMoves, blackMoves);
+        this.blackPlayer = new BlackPlayer(this, whiteMoves, blackMoves);
+
+        this.currentPlayer = builder.nextMove.nextPlayer(this.blackPlayer, this.whitePlayer);
     }
 
     //-------------- public methods ----------------------------
@@ -134,6 +147,15 @@ public class GameBoard {
         return b.build();
     }
 
+    /**
+     * joins the two lists of Moves of both the whitePlayer and the blackPlayer.
+     * @return A List of all possible Moves between both Players
+     */
+    public List<Move> getAllMoves(){
+        return Stream.concat(this.blackPlayer.getLegalMoves().stream(), this.whitePlayer.getLegalMoves().stream())
+                .collect(Collectors.toList());
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -186,7 +208,29 @@ public class GameBoard {
         return ImmutableList.copyOf(active);
     }
 
-    //---------------- nested class -------------------
+    //-------------- getters and setters --------------
+
+    public List<Piece> getWhite() {
+        return white;
+    }
+
+    public List<Piece> getBlack() {
+        return black;
+    }
+
+    public WhitePlayer getWhitePlayer() {
+        return whitePlayer;
+    }
+
+    public BlackPlayer getBlackPlayer() {
+        return blackPlayer;
+    }
+
+    public Player getCurrentPlayer() {
+        return this.currentPlayer;
+    }
+
+//---------------- nested class -------------------
 
     /**
      * Utilizes the builder pattern to decouple the complexity of constructing a board object.
@@ -235,5 +279,5 @@ public class GameBoard {
         public GameBoard build() {
             return new GameBoard(this);
         }
-    }
-}
+    }// end of builder class
+}// end of GameBoard class
